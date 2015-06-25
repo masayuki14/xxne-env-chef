@@ -28,7 +28,7 @@ template 'virtualhost.conf' do
 end
 
 # vim, screen
-%w[git vim-enhanced screen].each do |pkg|
+%w[git vim-enhanced screen nkf].each do |pkg|
   install pkg
 end
 
@@ -65,12 +65,12 @@ service 'mysqld' do
   action [ :enable, :start ]
 end
 
-#bash 'mysql-create-user'
-#  code <<-EOF
-#    mysql -uroot -e "CREATE DATABASE IF NOT EXISTS `#{}` DEFAULT CHARACTER SET utf8;
-#    mysql -uroot -e "GRANT ALL PRIVILEGES ON #{}.* TO #{}@localhost IDENTIFIED BY '#{}';
-#  EOF
-#end
+bash 'mysql-create-user' do
+  code <<-EOF
+    mysql -uroot -e "CREATE DATABASE IF NOT EXISTS `#{node['mysql']['database']}` DEFAULT CHARACTER SET utf8;
+    mysql -uroot -e "GRANT ALL PRIVILEGES ON #{node['mysql']['database']}.* TO #{node['mysql']['user']}@localhost IDENTIFIED BY '#{node['mysql']['password']}';
+  EOF
+end
 
 # php
 %w[php php-mbstring php-mysql php-pdo php-pear].each do |pkg|
