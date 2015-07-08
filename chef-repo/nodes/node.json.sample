@@ -1,0 +1,13 @@
+{
+  "mysql": {
+    "database": "",
+    "user"    : "",
+    "password": ""
+  },
+  "run_list": [
+    "recipe[at_mail]"
+  ],
+  "automatic": {
+    "ipaddress": "avi_vm"
+  }
+}
