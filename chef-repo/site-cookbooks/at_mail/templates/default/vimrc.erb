@@ -157,10 +157,10 @@ let g:debuggerPort = 9001
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
 
 " undo履歴の保存
-set undofile
+"set undofile
 
 " NeoBundelの設定 ---------------------------------------------------------
 " vim起動時にのみruntimepathneobundle.vimを追加
@@ -169,22 +169,22 @@ if has('vim_starting')
 endif
 
 " neobundle.vimの初期化
-call neobundle#begin(expand('~/.vim/bundle'))
+"call neobundle#begin(expand('~/.vim/bundle'))
 "call neobundle#rc(expand('~/.vim/bundle'))
 
 " neobundle.vimを更新するための設定
-NeoBundleFetch 'Shougo/neobundle.vim'
+"NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 読み込むプラグインを記載
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim', { 'build' : { 'mac' : 'make -f make_mac.mak' } }
-NeoBundle 'Shougo/vimfiler'
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/vimproc.vim', { 'build' : { 'mac' : 'make -f make_mac.mak' } }
+"NeoBundle 'Shougo/vimfiler'
 
 " 読み込んだプラグインも含め、ファイルタイプの検出、
 " ファイルタイプ別プラグイン/インデントを有効化する
 filetype plugin indent on
 
-call neobundle#end()
+"call neobundle#end()
 " -------------------------------------------------------------------------
 
 
