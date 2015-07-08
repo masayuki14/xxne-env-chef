@@ -41,6 +41,21 @@ end
   end
 end
 
+# fish
+bash 'fish' do
+  cwd '/etc/yum.repos.d/'
+  user 'root'
+  code <<-EOF
+    wget http://download.opensuse.org/repositories/shells:fish:release:2/CentOS_6/shells:fish:release:2.repo
+  EOF
+  not_if 'which fish'
+  notifies :install, 'package[fish]', :immediately
+end
+
+package 'fish' do
+  action :nothing
+end
+
 # iptables
 service 'iptables' do
   action [:disable, :stop]
