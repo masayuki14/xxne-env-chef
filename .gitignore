@@ -14,3 +14,5 @@ Berksfile.lock
 .kitchen/
 .kitchen.local.yml
 
+# chef
+chef-repo/nodes/*.json
