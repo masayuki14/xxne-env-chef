@@ -32,18 +32,13 @@ end
   install pkg
 end
 
-template 'screenrc' do
-  owner 'vagrant'
-  group 'vagrant'
-  mode  0644
-  path  '/home/vagrant/.screenrc'
-end
-
-template 'vimrc' do
-  owner 'vagrant'
-  group 'vagrant'
-  mode  0644
-  path  '/home/vagrant/.vimrc'
+%w[screenrc vimrc gitconfig].each do |rc|
+  template rc do
+    owner 'vagrant'
+    group 'vagrant'
+    mode  0644
+    path  "/home/vagrant/.#{rc}"
+  end
 end
 
 # iptables
