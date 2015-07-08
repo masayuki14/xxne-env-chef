@@ -76,9 +76,10 @@ service 'mysqld' do
 end
 
 bash 'mysql-create-user' do
+
   code <<-EOF
-    mysql -uroot -e "CREATE DATABASE IF NOT EXISTS `#{node['mysql']['database']}` DEFAULT CHARACTER SET utf8;
-    mysql -uroot -e "GRANT ALL PRIVILEGES ON #{node['mysql']['database']}.* TO #{node['mysql']['user']}@localhost IDENTIFIED BY '#{node['mysql']['password']}';
+    mysql -uroot -e "CREATE DATABASE IF NOT EXISTS #{node['mysql']['database']} DEFAULT CHARACTER SET utf8;"
+    mysql -uroot -e "GRANT ALL PRIVILEGES ON #{node['mysql']['database']}.* TO #{node['mysql']['user']}@localhost IDENTIFIED BY '#{node['mysql']['password']}';"
   EOF
 end
 
