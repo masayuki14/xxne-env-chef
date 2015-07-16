@@ -119,6 +119,7 @@ end
 
 directory '/home/vagrant/xxneorg' do
   mode 0755
+  owner 'vagrant'
   action :create
 end
 
